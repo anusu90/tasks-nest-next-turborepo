@@ -1,0 +1,8 @@
+{
+  "name": "tailwind-config",
+  "version": "1.0.0",
+  "description": "shared tailwind config for this monorepo",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}
