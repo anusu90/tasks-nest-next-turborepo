@@ -5,6 +5,7 @@ import { useGetAllAnimals } from "@/service-providers/animal";
 import { useGetAllBirds } from "@/service-providers/bird";
 import { useState } from "react";
 import { AxiosError } from "axios";
+import Image from "next/image";
 
 const Home = () => {
   const {
@@ -63,7 +64,23 @@ const Home = () => {
           {display === "animal" ? (
             <>
               <div>{isLoadingAnimalData ? <>Loading....</> : <></>}</div>
-              <div>{JSON.stringify(animalData)}</div>
+              <div>
+                {animalData?.map((oneAnimal) => (
+                  <div key={oneAnimal.id}>
+                    <div className="">
+                      <Image
+                        src={oneAnimal.image ?? ""}
+                        alt="item image"
+                        width={600}
+                        height={600}
+                      />
+                    </div>
+                    <div>Kingdom: {oneAnimal.kingdom}</div>
+                    <div>Species: {oneAnimal.species}</div>
+                    <div>Name: {oneAnimal.name}</div>
+                  </div>
+                ))}
+              </div>
               <div className="text-red-500">
                 {(animalError as AxiosError)?.message}
               </div>
@@ -74,7 +91,23 @@ const Home = () => {
           {display === "bird" ? (
             <>
               <div>{isLoadingBirdData ? <>Loading....</> : <></>}</div>
-              <div>{JSON.stringify(birdData)}</div>
+              <div>
+                {birdData?.map((oneBird) => (
+                  <div key={oneBird.id}>
+                    <div className="">
+                      <Image
+                        src={oneBird.image ?? ""}
+                        alt="item image"
+                        width={400}
+                        height={300}
+                      />
+                    </div>
+                    <div>Kingdom: {oneBird.kingdom}</div>
+                    <div>Species: {oneBird.species}</div>
+                    <div>Name: {oneBird.name}</div>
+                  </div>
+                ))}
+              </div>
               <div className="text-red-500">
                 {(birdError as AxiosError)?.message}
               </div>
