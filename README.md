@@ -9,6 +9,10 @@
 ##### FrontEnd
 
 - NextJS based app
+  - CSR page with auth protection
+  - SSR page with auth protection
+  - Custom hooks to make api calls
+  - Public/protected api calls
 - Tailwindcss for styling
 - NextAuth for authentication on the FE
 - React Query for making API calls
