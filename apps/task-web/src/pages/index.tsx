@@ -41,6 +41,7 @@ const Home = () => {
         <div className="flex">
           <div className="m-2">
             <Button
+              variant="primary"
               onClick={() => {
                 setDisplay("animal");
                 fetchAnimal();
@@ -51,6 +52,7 @@ const Home = () => {
           </div>
           <div className="m-2">
             <Button
+              variant="primary"
               onClick={() => {
                 setDisplay("bird");
                 fetchBirds();

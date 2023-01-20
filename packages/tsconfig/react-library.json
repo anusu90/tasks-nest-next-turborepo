@@ -8,6 +8,7 @@
     "lib": ["ES2015"],
     "module": "ESNext",
     "target": "es6",
-    "paths": { "@models/*": ["../../packages/ui/models/*"] }
+    "paths": { "@models/*": ["../ui/src/models/*"] },
+    "outDir": "./dist"
   }
 }

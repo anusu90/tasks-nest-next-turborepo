@@ -11,5 +11,10 @@
     "dev": {
       "cache": false
     }
-  }
+  },
+  "globalEnv": [
+    "NEXT_PUBLIC_BASE_API_URL",
+    "NEXT_PUBLIC_GOOGLE_CLIENT_ID",
+    "NEXT_PUBLIC_GOOGLE_SECRET"
+  ]
 }

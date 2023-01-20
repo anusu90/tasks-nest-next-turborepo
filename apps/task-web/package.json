@@ -23,12 +23,16 @@
     "react-dom": "18.2.0",
     "tailwind-config": "*",
     "typescript": "4.9.4",
-    "ui": "*"
+    "ui": "*",
+    "eslint-config-custom": "*"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwind": "^4.0.0"
-  }
+  },
+  "bundledDependencies": [
+    "ui"
+  ]
 }
