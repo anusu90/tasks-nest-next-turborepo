@@ -1,8 +1,8 @@
-import axios, { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
-import type { AxiosRequestHeaders } from "axios";
+import axios from "axios";
 import { getSession } from "next-auth/react";
 import { NextAuthSession } from "@/model/next-auth";
 import { useCallback } from "react";
+import { UpdatedAxiosRequestConfig } from "@/model/axios";
 type CRUD = "GET" | "POST" | "PUT";
 interface ClientParamsModel {
   endpoint: string;
@@ -21,18 +21,18 @@ const client = async <T = any>({
 }: ClientParamsModel) => {
   const session = await getSession();
   const token = (session as NextAuthSession)?.idToken;
-  const axiosConfig: Omit<AxiosRequestConfig, "headers"> & { headers: any } = {
+  const axiosConfig: UpdatedAxiosRequestConfig = {
     method: method ?? "GET",
     url: isUrlAbsolute ? endpoint : `${BASE_API_URL}/${endpoint}`,
     headers: {
       common: { authorization: isAuth && token ? `${token}` : "" },
     },
   };
-  console.log("here", axiosConfig);
   try {
     const response = await axios<T>(axiosConfig);
     return response?.data;
   } catch (error) {
+    // console.log("error", (error as AxiosError).response?.status===401);
     return Promise.reject(error);
   }
 };

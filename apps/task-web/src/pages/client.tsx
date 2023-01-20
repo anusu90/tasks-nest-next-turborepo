@@ -1,5 +1,4 @@
 import { getLayout } from "@/components/layout/layout";
-import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -13,6 +12,7 @@ const ClientPage: NextPageWithLayout = () => {
     if (status === "unauthenticated") {
       router.push("/unauthenticated");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
   if (status === "authenticated") {

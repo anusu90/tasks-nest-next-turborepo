@@ -1,19 +1,17 @@
-import { Inter } from "@next/font/google";
 import { useSession } from "next-auth/react";
 import { getLayout } from "@/components/layout/layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
-
 const Home = () => {
-  const { status, data } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
     if (status === "authenticated") {
       router.push("/");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
   if (status === "loading") return <div>Loading....</div>;

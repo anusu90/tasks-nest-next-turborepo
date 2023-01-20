@@ -11,7 +11,7 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, account, profile, user }) {
+    async jwt({ token, account, user }) {
       if (user?.id) {
         token.user_id = user?.id;
       }
@@ -20,7 +20,7 @@ const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    async session({ session, user, token }) {
+    async session({ session, token }) {
       if (token?.idToken) {
         (session as NextAuthSession).idToken = token.idToken as string;
       }

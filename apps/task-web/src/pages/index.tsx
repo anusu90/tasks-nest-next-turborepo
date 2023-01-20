@@ -1,4 +1,3 @@
-import { useSession } from "next-auth/react";
 import { getLayout } from "@/components/layout/layout";
 import { Button } from "ui";
 import { useGetAllAnimals } from "@/service-providers/animal";
